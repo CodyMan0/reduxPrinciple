@@ -1,11 +1,8 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
+import store from "../store/store";
 
-const AddNumber = ({
-  setNum,
-}: {
-  setNum: Dispatch<SetStateAction<number>>;
-}) => {
-  const [size, setSize] = useState(1);
+const AddNumber = () => {
+  const [size, setSize] = useState(3);
   return (
     <div>
       <h1>Add number</h1>
@@ -13,7 +10,10 @@ const AddNumber = ({
         type="button"
         value="+"
         onClick={() => {
-          setNum((prev) => prev + size);
+          store.dispatch({
+            type: "INCREMENT",
+            size: size,
+          });
         }}
       />
       <input
