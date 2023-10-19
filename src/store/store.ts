@@ -1,7 +1,7 @@
 import { createStore, Reducer } from "redux";
 
 // 상태의 타입 정의
-interface AppState {
+export interface AppState {
   number: number;
 }
 
@@ -12,7 +12,7 @@ interface IncrementAction {
 }
 
 // 액션 객체에 대한 유니온 타입 정의
-type AppAction = IncrementAction;
+export type AppAction = IncrementAction;
 
 // 초기 상태 정의
 const initialState: AppState = { number: 0 };

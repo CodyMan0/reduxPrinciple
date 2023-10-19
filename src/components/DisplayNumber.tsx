@@ -1,5 +1,6 @@
 import { useState } from "react";
-import store from "../store/store";
+import { connect } from "react-redux";
+import store, { AppState } from "../store/store";
 
 const DisplayNumber = () => {
   const [numStateInRedux, setNumStateInRedux] = useState(
@@ -17,4 +18,10 @@ const DisplayNumber = () => {
   );
 };
 
-export default DisplayNumber;
+const mapReduxStateToReactProps = (state: AppState) => {
+  return {
+    number: state.number,
+  };
+};
+
+export default connect(mapReduxStateToReactProps)(DisplayNumber);
